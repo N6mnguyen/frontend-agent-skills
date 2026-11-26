@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+# Local installs created while testing `npx skills add .`
+.agents/
+.claude/
+.cursor/
+.windsurf/
+skills-lock.json

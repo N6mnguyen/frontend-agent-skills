@@ -1,0 +1,14 @@
+{
+  "name": "frontend-agent-skills",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Enterprise frontend engineering skills for React and Angular agents",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-skills.mjs",
+    "test": "node --test scripts/*.test.mjs"
+  },
+  "engines": { "node": ">=22.20.0" },
+  "keywords": ["agent-skills", "frontend", "react", "angular", "typescript"]
+}

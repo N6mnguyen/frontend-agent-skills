@@ -1,0 +1,25 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validator self-tests
+        run: npm test
+      - name: Validate skills (frontmatter, names, sections, links, fences, duplicates)
+        run: npm run validate
+      - name: Installation compatibility (Skills CLI discovers every skill)
+        run: |
+          expected=$(find skills -mindepth 3 -maxdepth 3 -name SKILL.md | wc -l)
+          found=$(DISABLE_TELEMETRY=1 npx -y skills@1.9.0 add . --list 2>&1 | grep -oE 'Found [0-9]+ skills' | grep -oE '[0-9]+')
+          echo "expected=$expected found=$found"
+          test "$expected" = "$found"
