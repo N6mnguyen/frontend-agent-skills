@@ -1,10 +1,13 @@
 {
-  "name": "frontend-agent-skills",
+  "name": "create-frontend-agent-skills",
   "version": "0.1.0",
   "private": false,
   "description": "Enterprise frontend engineering skills for React and Angular agents",
   "license": "MIT",
   "type": "module",
+  "bin": { "create-frontend-agent-skills": "scripts/install.mjs" },
+  "files": ["scripts/install.mjs", "skills/*/*/SKILL.md"],
+  "repository": { "type": "git", "url": "git+https://github.com/N6mnguyen/frontend-agent-skills.git" },
   "scripts": {
     "validate": "node scripts/validate-skills.mjs",
     "test": "node --test scripts/*.test.mjs"
